@@ -34,7 +34,7 @@
           </v-card>
         </v-col>
         <v-col cols="6">
-          <v-card @click="select">
+          <v-card @click="navigateToAppointments">
             <v-row>
               <v-col cols="2"></v-col>
               <v-col cols="8">
@@ -60,7 +60,10 @@
 export default {
 name: "home-consultant",
   methods: {
-    select() { }
+    select() { },
+    navigateToAppointments() {
+      this.$router.push ({name: 'appointments'});
+    }
   }
 }
 </script>

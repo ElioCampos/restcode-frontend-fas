@@ -1,15 +1,15 @@
 <template>
   <v-app>
-    <v-app-bar app color="#1BD698" fixed>
+    <v-app-bar app dark fixed color="#1BD698">
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-toolbar-title>RestCode</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text to="/home">Home</v-btn>
-        <v-btn text to="/restaurants">Restaurants</v-btn>
-        <v-btn text to="/consultancies">Consultancies</v-btn>
+        <v-btn text to="/home-owner">Inicio</v-btn>
+        <v-btn text to="/restaurants">Restaurantes</v-btn>
+        <v-btn text to="/consultancies">Consultorías</v-btn>
         <v-btn text to="/plans">Plan</v-btn>
-        <v-btn text to="/consultants/23">Profile</v-btn>
+        <v-btn text to="/consultants/23">Perfil</v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-main>
