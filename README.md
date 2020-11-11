@@ -1,4 +1,4 @@
-# restcode-web-application
+# RestCodeFrontEnd_WebApplication
 
 ## Project setup
 ```
