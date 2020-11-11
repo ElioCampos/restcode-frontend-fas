@@ -1,4 +1,4 @@
-# restcode-web-application
+# in-app-navigation
 
 ## Project setup
 ```
