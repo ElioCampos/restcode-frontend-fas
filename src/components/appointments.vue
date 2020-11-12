@@ -61,7 +61,6 @@
     </v-card-text>
     <v-card-actions>
       <v-btn small color="primary" @click="navigateToAddAppointment">Pedir una cita</v-btn>
-      <v-btn small color="error" @click="removeAllAppointments">Eliminar todo</v-btn>
     </v-card-actions>
   </v-card>
 </template>

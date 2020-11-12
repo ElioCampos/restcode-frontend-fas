@@ -1,23 +1,29 @@
 <template>
   <v-card>
     <v-card-title class="justify-center">
-      Restaurant {{defaultItem.name}}
+      RESTAURANTE {{defaultItem.name.toUpperCase()}}
     </v-card-title>
+    <div class="d-flex flex-column justify-space-between align-center">
+      <v-img
+          src="https://image.freepik.com/vector-gratis/fachada-restaurante-estilo-plano_23-2147537370.jpg"
+          height="25%"
+          width="25%"
+      ></v-img>
+    </div>
     <v-card-text>
-      Address: {{defaultItem.address}}
+      Dirección: {{defaultItem.address}}
     </v-card-text>
     <v-card-text>
-      Cellphone Number: {{defaultItem.cellPhoneNumber}}
+      Número telefónico: {{defaultItem.cellPhoneNumber}}
     </v-card-text>
     <v-col class="justify-center">
       <v-btn color="#1bd698" dark class="mb-2" v-bind="attrs" v-on="on" @click="navigateToEditRestaurant(defaultItem.id)">
         <v-icon>
           mdi-pencil
         </v-icon>
-        Edit Information
+        Editar Información
       </v-btn>
     </v-col>
-
   </v-card>
 </template>
 
@@ -52,7 +58,8 @@ export default {
           .catch((e) => {
             console.log(e);
           });
-    }, save() {
+    },
+    save() {
       RestaurantService.update(this.defaultItem.id, this.defaultItem)
           .then(() => {
             this.retrieveRestaurant(this.defaultItem.id);

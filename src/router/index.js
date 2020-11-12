@@ -24,6 +24,11 @@ const routes = [
     component: () => import('../components/consultant-profile')
   },
   {
+    path: '/consultants',
+    name: 'consultant-profile',
+    component: () => import('../components/consultant-profile')
+  },
+  {
     path: '/home',
     name: 'home',
     component: () => import('../components/home')

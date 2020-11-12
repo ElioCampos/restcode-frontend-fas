@@ -7,7 +7,7 @@
       <v-toolbar-items>
         <v-btn text to="/home">Inicio</v-btn>
         <v-btn text to="/restaurants/301">Restaurante</v-btn>
-        <v-btn text to="/consultancies">Consultorías</v-btn>
+        <v-btn text to="/consultancies">Consultores</v-btn>
         <v-btn text to="/plans">Plan</v-btn>
         <v-btn text to="/consultants/23">Perfil</v-btn>
       </v-toolbar-items>

@@ -19,7 +19,8 @@
           :search="search"
           class="elevation-1"
           ref="filterTable">
-        <template v-slot: [`item.actions`]="{item}">
+        <template v-slot:[`item.actions`]="{ item }">
+          <v-icon small @click="navigateToConsultantProfile(item.id)">mdi-account</v-icon>
         </template>
       </v-data-table>
     </v-card-text>
@@ -37,10 +38,11 @@ export default {
       dialogDelete: false,
       headers:[
         {text: 'Id', value: 'id'},
-        {text: 'FirstName', value: 'firstName'},
-        {text: 'LastName', value: 'lastName'},
-        {text: 'Cellphone', value: 'cellphone'},
-        {text: 'Linkedin', value: 'linkedinLink'}
+        {text: 'Nombre', value: 'firstName'},
+        {text: 'Apellido', value: 'lastName'},
+        {text: 'Teléfono', value: 'cellphone'},
+        {text: 'Linkedin', value: 'linkedinLink'},
+        {text: 'Perfil', value: 'actions', sortable: false}
       ],
       filters: [],
       displayFilters:[],
@@ -53,9 +55,9 @@ export default {
         linkedinLink: ''
       },
       defaultItem:{
-        id:0,
+        id: 0,
         firstName: '',
-        lastName:'',
+        lastName: '',
         cellphone: '',
         linkedinLink: ''
       },
@@ -67,8 +69,8 @@ export default {
     }
   },
   methods: {
-    getDisplayFilter(filter){
-      return{
+    getDisplayFilter(filter) {
+      return {
         id: filter.id,
         firstName: filter.firstName,
         lastName: filter.lastName,
@@ -85,6 +87,9 @@ export default {
     },
     refreshList(){
       this.retrieveFilters();
+    },
+    navigateToConsultantProfile(id) {
+      this.$router.push ({path: `consultants/${id}`});
     }
   },
   mounted() {
