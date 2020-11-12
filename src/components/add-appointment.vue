@@ -72,8 +72,8 @@ export default {
   },
   methods: {
     clear () {
-      this.item.currentDateTime = null
-      this.item.scheduleDateTime = null
+      this.item.currentDateTime = ''
+      this.item.scheduleDateTime = ''
       this.item.topic = ''
       this.item.meetLink =''
       this.item.ownerId = 0
