@@ -16,12 +16,12 @@
           </v-row>
         </v-col>
         <v-col cols="6">
-          <v-card @click="select">
+          <v-card @click="navigateToManageProducts">
             <v-row>
               <v-col cols="2"></v-col>
               <v-col cols="8">
                 <v-img
-                    src="https://x6i2p6h3.rocketcdn.me/wp-content/uploads/2018/01/Cocina-de-restaurante.jpg"
+                    src="https://peru21.pe/resizer/R3O07pGUXuqpOIYYV0_Z3hufi1k=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/4FMVWEJARFCT5B47PPKCAI5ROU.jpg"
                     width="100%"
                     class="rounded-img"
                 ></v-img>
@@ -52,12 +52,12 @@
           </v-card>
         </v-col>
         <v-col cols="6">
-          <v-card @click="select">
+          <v-card @click="navigateToManageCategories">
             <v-row>
               <v-col cols="2"></v-col>
               <v-col cols="8">
                 <v-img
-                    src="https://www.marketingdirecto.com/wp-content/uploads/2019/12/SEO.jpg"
+                    src="https://x6i2p6h3.rocketcdn.me/wp-content/uploads/2018/01/Cocina-de-restaurante.jpg"
                     width="100%"
                     class="rounded-img"
                 ></v-img>
@@ -65,12 +65,12 @@
               <v-col cols="2"></v-col>
             </v-row>
             <v-card-title class="justify-center">
-              Registrar ventas
+              Gestionar categorías
             </v-card-title>
           </v-card>
         </v-col>
         <v-col cols="6">
-          <v-card @click="select">
+          <v-card @click="navigateToSales">
             <v-row>
               <v-col cols="2"></v-col>
               <v-col cols="8">
@@ -83,7 +83,7 @@
               <v-col cols="2"></v-col>
             </v-row>
             <v-card-title class="justify-center">
-              Reporte de ventas
+              Mis ventas
             </v-card-title>
           </v-card>
         </v-col>
@@ -124,6 +124,15 @@ export default {
     },
     navigateToRestaurant(id) {
       this.$router.push ({name: 'restaurants', params: { id: id}});
+    },
+    navigateToSales() {
+      this.$router.push ({name: 'sales'});
+    },
+    navigateToManageProducts() {
+      this.$router.push ({name: 'products'});
+    },
+    navigateToManageCategories() {
+      this.$router.push ({name: 'categories'});
     }
   }
 }

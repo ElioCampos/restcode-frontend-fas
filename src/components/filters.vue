@@ -20,7 +20,7 @@
           class="elevation-1"
           ref="filterTable">
         <template v-slot:[`item.actions`]="{ item }">
-          <v-icon small @click="navigateToConsultantProfile(item.id)">mdi-account</v-icon>
+          <v-icon @click="navigateToConsultantProfile(item.id)">mdi-account</v-icon>
         </template>
       </v-data-table>
     </v-card-text>

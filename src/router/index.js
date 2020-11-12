@@ -67,12 +67,22 @@ const routes = [
     path: '/consultancies',
     name: 'filters',
     component: () => import('../components/filters')
+  },
+  {
+    path: '/sales',
+    name: 'sales',
+    component: () => import('../components/sales')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import('../components/products')
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: () => import('../components/categories')
   }
-  /*{
-    path: '/consultants',
-    name: 'consultant-profile',
-    component: () => import('../components/consultant-profile')
-  }*/
 ]
 
 const router = new VueRouter({
