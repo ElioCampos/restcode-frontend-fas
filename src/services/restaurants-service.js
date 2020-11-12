@@ -4,6 +4,7 @@ class RestaurantsService {
     getAll() {
         return http.get('/restaurants');
     }
+
     get(id) {
         return http.get(`/restaurants/${id}`);
     }

@@ -1,11 +1,11 @@
 <template>
   <v-card>
     <v-card-title class="justify-center">
-      ADMINISTRAR MIS PRODUCTOS
+      ADMINISTRAR MIS CATEGORIAS
     </v-card-title>
     <v-card-text>
-      <v-data-table :headers="headers" :items="displayProducts" :items-per-page="15" :search="search"
-                    class="elevation-1" ref="productsTable">
+      <v-data-table :headers="headers" :items="displayCategories" :items-per-page="15" :search="search"
+                    class="elevation-1" ref="categoriesTable">
         <template v-slot:[`item.actions`]="{ item }">
           <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
           <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
@@ -13,7 +13,7 @@
         <template v-slot:top>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="#1bd698" class="mb-2" v-bind="attrs" v-on="on">Agregar Producto</v-btn>
+              <v-btn color="#1bd698" class="mb-2" v-bind="attrs" v-on="on">Agregar Categoria</v-btn>
             </template>
             <v-card>
               <v-card-title>
@@ -24,9 +24,6 @@
                   <v-row>
                     <v-col cols="9" sm="6" md="20">
                       <v-text-field v-model="editedItem.name" label="Nombre"></v-text-field>
-                    </v-col>
-                    <v-col cols="9" sm="6" md="20">
-                      <v-text-field v-model="editedItem.price" label="Precio"></v-text-field>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -40,10 +37,15 @@
           </v-dialog>
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
-              <v-card-title class="headline">Eliminar producto</v-card-title>
+              <v-card-title class="headline">Eliminar categoria</v-card-title>
               <v-card-text>
-                <p>¿Estás seguro de querer eliminar el producto <b>{{ editedItem.name }}?</b></p>
+                <p>¿Estás seguro de querer eliminar la categoria <b>{{ editedItem.name }}?</b></p>
               </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="#1bd698" text @click="closeDelete">Cancelar</v-btn>
+                <v-btn color="#1bd698" text @click="deleteItemConfirm">Aceptar</v-btn>
+              </v-card-actions>
             </v-card>
           </v-dialog>
         </template>
@@ -53,10 +55,10 @@
 </template>
 
 <script>
-import ProductService from '../services/products-service';
+import CategoryService from '../services/categories-service';
 
 export default {
-  name: "products",
+  name: "categories",
   data() {
     return {
       search: '',
@@ -65,27 +67,24 @@ export default {
       headers: [
         {text: 'Id', value: 'id'},
         {text: 'Nombre', value: 'name'},
-        {text: 'Precio', value: 'price'},
         {text: 'Acciones', value: 'actions', sortable: false}
       ],
-      products: [],
-      displayProducts: [],
+      categories: [],
+      displayCategories: [],
       editedIndex: -1,
       editedItem: {
         name: '',
-        price: 0.0,
         restaurantId: 301
       },
       defaultItem: {
         name: '',
-        price: 0.0,
         restaurantId: 301
       },
     }
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? 'Nuevo Producto' : 'Editar Producto'
+      return this.editedIndex === -1 ? 'Nueva Categoria' : 'Editar Categoria'
     },
   },
   watch: {
@@ -97,27 +96,27 @@ export default {
     },
   },
   methods: {
-    retrieveProducts() {
-      ProductService.getAll()
+    retrieveCategories() {
+      CategoryService.getByRestaurantId(this.editedItem.restaurantId)
           .then(response => {
-            this.products = response.data;
-            this.displayProducts = response.data.map(this.getDisplayProduct);
+            this.categories = response.data;
+            this.displayCategories = response.data.map(this.getDisplayCategory);
           })
           .catch((e) => {
             console.log(e);
           });
     },
-    getDisplayProduct(product) {
+    getDisplayCategory(category) {
       return {
-        id: product.id,
-        name: product.name
+        id: category.id,
+        name: category.name
       };
     },
     refreshList() {
-      this.retrieveProducts();
+      this.retrieveCategories();
     },
-    removeAllProducts() {
-      ProductService.deleteAll()
+    removeAllCategories() {
+      CategoryService.deleteAll()
           .then(() => {
             this.refreshList();
           })
@@ -127,19 +126,19 @@ export default {
           });
     },
     editItem(item) {
-      this.editedIndex = this.displayProducts.indexOf(item);
+      this.editedIndex = this.displayCategories.indexOf(item);
       console.log(item);
-      this.editedItem = this.products[this.editedIndex];
+      this.editedItem = this.categories[this.editedIndex];
       this.dialog = true;
     },
     deleteItem(item) {
-      this.editedIndex = this.displayProducts.indexOf(item);
-      this.editedItem = Object.assign({}, this.products[this.editedIndex]);
+      this.editedIndex = this.displayCategories.indexOf(item);
+      this.editedItem = Object.assign({}, this.categories[this.editedIndex]);
       this.dialogDelete = true;
     },
     deleteItemConfirm() {
-      this.deleteProduct(this.editedItem.id);
-      this.products.splice(this.editedIndex, 1);
+      this.deleteCategory(this.editedItem.id);
+      this.categories.splice(this.editedIndex, 1);
       this.closeDelete();
     },
     close() {
@@ -158,9 +157,9 @@ export default {
     },
     save() {
       if (this.editedIndex > -1) {
-        this.products[this.editedIndex] = this.editedItem;
-        this.displayProducts[this.editedIndex] = this.getDisplayProduct(this.products[this.editedIndex]);
-        ProductService.update(this.editedItem.id, this.editedItem)
+        this.categories[this.editedIndex] = this.editedItem;
+        this.displayCategories[this.editedIndex] = this.getDisplayCategory(this.categories[this.editedIndex]);
+        CategoryService.update(this.editedItem.id, this.editedItem)
             .then(() => {
               this.refreshList();
             })
@@ -168,11 +167,11 @@ export default {
               console.log(e);
             });
       } else {
-        ProductService.create(this.editedItem)
+        CategoryService.create(this.editedItem)
             .then(response => {
               let item = response.data;
-              this.products.push(item);
-              this.displayProducts.push(this.getDisplayProduct(item));
+              this.categories.push(item);
+              this.displayCategories.push(this.getDisplayCategory(item));
             })
             .catch(e => {
               console.log(e);
@@ -180,8 +179,8 @@ export default {
       }
       this.close()
     },
-    deleteProduct(id) {
-      ProductService.delete(id)
+    deleteCategory(id) {
+      CategoryService.delete(id)
           .then(() => {
             this.refreshList();
           })
@@ -191,7 +190,7 @@ export default {
     }
   },
   mounted() {
-    this.retrieveProducts();
+    this.retrieveCategories();
   }
 }
 </script>
