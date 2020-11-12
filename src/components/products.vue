@@ -54,7 +54,7 @@
             <v-card>
               <v-card-title class="headline">Eliminar producto</v-card-title>
               <v-card-text>
-                <p>¿Estás seguro de querer eliminar el producto <b>{{ editedItem.name }}?</b></p>
+                <p>¿Está seguro de querer eliminar el producto <b>{{ editedItem.name }}?</b></p>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>

@@ -3,6 +3,15 @@
     <v-card-title class="justify-center">
       ADMINISTRAR MIS CATEGORIAS
     </v-card-title>
+    <v-col cols="12" md="6">
+      <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="búsqueda"
+          single-line
+          hide-details
+      ></v-text-field>
+    </v-col>
     <v-card-text>
       <v-data-table :headers="headers" :items="displayCategories" :items-per-page="15" :search="search"
                     class="elevation-1" ref="categoriesTable">
@@ -39,7 +48,7 @@
             <v-card>
               <v-card-title class="headline">Eliminar categoria</v-card-title>
               <v-card-text>
-                <p>¿Estás seguro de querer eliminar la categoria <b>{{ editedItem.name }}?</b></p>
+                <p>¿Está seguro de querer eliminar la categoria <b>{{ editedItem.name }}?</b></p>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
