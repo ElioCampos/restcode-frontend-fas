@@ -57,6 +57,11 @@ const routes = [
     path: '/restaurants/:id',
     name: 'edit-restaurant',
     component: () => import('../components/edit-restaurant')
+  },
+  {
+    path: '/consultancies',
+    name: 'filters',
+    component: () => import('../components/filters')
   }
   /*{
     path: '/consultants',
