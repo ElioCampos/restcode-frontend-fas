@@ -3,6 +3,15 @@
     <v-card-title class="justify-center">
       ADMINISTRAR MIS PRODUCTOS
     </v-card-title>
+    <v-col cols="12" md="6">
+      <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="búsqueda"
+          single-line
+          hide-details
+      ></v-text-field>
+    </v-col>
     <v-card-text>
       <v-data-table :headers="headers" :items="displayProducts" :items-per-page="15" :search="search"
                     class="elevation-1" ref="productsTable">
@@ -26,7 +35,10 @@
                       <v-text-field v-model="editedItem.name" label="Nombre"></v-text-field>
                     </v-col>
                     <v-col cols="9" sm="6" md="20">
-                      <v-text-field v-model="editedItem.price" label="Precio"></v-text-field>
+                      <v-text-field v-model.number="editedItem.price" label="Precio"></v-text-field>
+                    </v-col>
+                    <v-col cols="9" sm="6" md="20">
+                      <v-text-field v-model.number="editedItem.categoryId" label="Id de Categoria"></v-text-field>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -44,6 +56,11 @@
               <v-card-text>
                 <p>¿Estás seguro de querer eliminar el producto <b>{{ editedItem.name }}?</b></p>
               </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="#1bd698" text @click="closeDelete">Cancelar</v-btn>
+                <v-btn color="#1bd698" text @click="deleteItemConfirm">Aceptar</v-btn>
+              </v-card-actions>
             </v-card>
           </v-dialog>
         </template>
@@ -66,20 +83,23 @@ export default {
         {text: 'Id', value: 'id'},
         {text: 'Nombre', value: 'name'},
         {text: 'Precio', value: 'price'},
+        {text: 'Id de Categoria', value: 'categoryId'},
         {text: 'Acciones', value: 'actions', sortable: false}
       ],
       products: [],
       displayProducts: [],
       editedIndex: -1,
       editedItem: {
+        id: 0,
         name: '',
         price: 0.0,
-        restaurantId: 301
+        categoryId: 0
       },
       defaultItem: {
+        id: 0,
         name: '',
         price: 0.0,
-        restaurantId: 301
+        categoryId: 0
       },
     }
   },
@@ -110,7 +130,9 @@ export default {
     getDisplayProduct(product) {
       return {
         id: product.id,
-        name: product.name
+        name: product.name,
+        price: product.price,
+        categoryId: product.categoryId
       };
     },
     refreshList() {

@@ -19,6 +19,10 @@ class ProductsService {
     delete(id) {
         return http.delete(`/products/${id}`);
     }
+
+    getByCategoryId(categoryId) {
+        return http.get(`/categories/${categoryId}/products`)
+    }
 }
 
 export default new ProductsService();
