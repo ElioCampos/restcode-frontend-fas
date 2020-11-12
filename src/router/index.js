@@ -19,6 +19,11 @@ const routes = [
     path: '/restaurants/:id',
     name: 'edit-restaurant',
     component: () => import('../components/edit-restaurant')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import('../components/products')
   }
 ]
 

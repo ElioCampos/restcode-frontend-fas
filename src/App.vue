@@ -6,7 +6,8 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn text to="/">Home</v-btn>
-        <v-btn text to="/restaurants/301">Restaurant</v-btn>
+        <v-btn text to="/restaurants/301">Restaurante</v-btn>
+        <v-btn text to="/products">Productos</v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-main>

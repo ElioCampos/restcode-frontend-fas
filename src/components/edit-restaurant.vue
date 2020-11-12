@@ -7,21 +7,21 @@
       <v-container>
         <v-row>
           <v-col cols="12" sm="6" md="4">
-            <v-text-field v-model="item.name" label="Restaurant Name"></v-text-field>
+            <v-text-field v-model="item.name" label="Nombre del restaurante"></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
-            <v-text-field v-model="item.address" label="Address"></v-text-field>
+            <v-text-field v-model="item.address" label="Dirección"></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
-            <v-text-field v-model="item.cellPhoneNumber" label="Cellphone Number"></v-text-field>
+            <v-text-field v-model.number="item.cellPhoneNumber" label="Número Telefónico"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="#1bd698" text @click="close">Cancel</v-btn>
-      <v-btn color="#1bd698" text @click="save">Save</v-btn>
+      <v-btn color="#1bd698" text @click="close">Cancelar</v-btn>
+      <v-btn color="#1bd698" text @click="save">Guardar</v-btn>
     </v-card-actions>
   </v-card>
 </template>
