@@ -1,0 +1,68 @@
+{
+  "sales": [
+    {
+      "id": 1,
+      "dateAndTime": "11/10/2020 00:00:00",
+      "clientFullName": "Lenin"
+    },
+    {
+      "id": 2,
+      "dateAndTime": "11/12/2020 00:00:00",
+      "clientFullName": "Pedro"
+    },
+    {
+      "id": 3,
+      "dateAndTime": "11/13/2020 00:00:00",
+      "clientFullName": "Diana"
+    },
+    {
+      "id": 4,
+      "dateAndTime": "11/14/2020 00:00:00",
+      "clientFullName": "David"
+    },
+    {
+      "id": 5,
+      "dateAndTime": "12/10/2020 00:00:00",
+      "clientFullName": "Juan"
+    },
+    {
+      "id": 6,
+      "dateAndTime": "12/11/2020 00:00:00",
+      "clientFullName": "Ariana"
+    },
+    {
+      "id": 7,
+      "dateAndTime": "12/12/2020 00:00:00",
+      "clientFullName": "Ramirez",
+      "total": 70.30
+    }
+  ],
+  "sale_details": [
+    {
+      "id": 1,
+      "quantity": 1,
+      "productId": 1,
+      "saleId": 1
+    },
+    {
+      "id": 2,
+      "quantity": 1,
+      "productId": 2,
+      "saleId": 1
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Pollo",
+      "productPrice": 30,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "productName": "Carne",
+      "productPrice": 10,
+      "categoryId": 3
+    }
+  ]
+}
