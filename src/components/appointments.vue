@@ -32,10 +32,10 @@
                       <v-text-field v-model="editedItem.meetLink" label="Link de la reunión"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.ownerId" label="ID Dueño de Restaurante"></v-text-field>
+                      <v-text-field v-model.number="editedItem.ownerId" label="ID Dueño de Restaurante"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.consultantId" label="ID Consultor"></v-text-field>
+                      <v-text-field v-model.number="editedItem.consultantId" label="ID Consultor"></v-text-field>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -87,8 +87,8 @@ export default {
       editedIndex: -1,
       editedItem: {
         id: 0,
-        currentDateTime: null,
-        scheduleDateTime: null,
+        currentDateTime: '',
+        scheduleDateTime: '',
         topic: '',
         meetLink: '',
         ownerId: 0,
@@ -96,8 +96,8 @@ export default {
       },
       defaultItem: {
         id: 0,
-        currentDateTime: null,
-        scheduleDateTime: null,
+        currentDateTime: '',
+        scheduleDateTime: '',
         topic: '',
         meetLink: '',
         ownerId: 0,
