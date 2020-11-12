@@ -19,7 +19,7 @@
                     RESTCODE
                     <v-spacer></v-spacer>
                     <p align="center" justify="center">
-                      <v-btn color="#faa519">
+                      <v-btn color="#faa519" @click="navigateToHomeOwner">
                         Iniciar sesión
                       </v-btn>
                       <v-spacer></v-spacer>
@@ -173,7 +173,11 @@ export default {
   methods: {
     navigateToPlans() {
       this.$router.push({name: '/plans'});
+    },
+    navigateToHomeOwner() {
+      this.$router.push({name: 'home-owner'});
     }
+
   }
 }
 </script>

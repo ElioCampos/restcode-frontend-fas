@@ -47,6 +47,16 @@ const routes = [
     path: '/appointments/new',
     name: 'add-appointment',
     component: () => import('../components/add-appointment')
+  },
+  {
+    path: '/restaurants/:id',
+    name: 'restaurants',
+    component: () => import('../components/restaurants')
+  },
+  {
+    path: '/restaurants/:id',
+    name: 'edit-restaurant',
+    component: () => import('../components/edit-restaurant')
   }
   /*{
     path: '/consultants',
