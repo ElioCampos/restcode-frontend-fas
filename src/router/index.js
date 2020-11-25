@@ -82,6 +82,11 @@ const routes = [
     path: '/categories',
     name: 'categories',
     component: () => import('../components/categories')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login')
   }
 ]
 
