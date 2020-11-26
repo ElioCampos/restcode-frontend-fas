@@ -16,7 +16,7 @@
           </v-row>
         </v-col>
         <v-col cols="6">
-          <v-card @click="select">
+          <v-card @click="navigateToPublications">
             <v-row>
               <v-col cols="2"></v-col>
               <v-col cols="8">
@@ -58,9 +58,12 @@
 
 <script>
 export default {
-name: "home-consultant",
+  name: "home-consultant",
   methods: {
     select() { },
+    navigateToPublications() {
+      this.$router.push ({name: 'publications'});
+    },
     navigateToAppointments() {
       this.$router.push ({name: 'appointments'});
     }

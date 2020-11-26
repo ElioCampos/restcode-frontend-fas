@@ -34,9 +34,24 @@ const routes = [
     component: () => import('../components/home')
   },
   {
+    path: '/sign-up',
+    name: 'sign-up',
+    component: () => import('../components/sign-up')
+  },
+  {
+    path: '/sign-in',
+    name: 'sign-in',
+    component: () => import('../components/sign-in')
+  },
+  {
     path: '/home-owner',
     name: 'home-owner',
     component: () => import('../components/home-owner')
+  },
+  {
+    path: '/publications',
+    name: 'publications',
+    component: () => import('../components/publications')
   },
   {
     path: '/home-consultant',
@@ -82,11 +97,6 @@ const routes = [
     path: '/categories',
     name: 'categories',
     component: () => import('../components/categories')
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/login')
   }
 ]
 

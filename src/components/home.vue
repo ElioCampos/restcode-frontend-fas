@@ -19,12 +19,8 @@
                     RESTCODE
                     <v-spacer></v-spacer>
                     <p align="center" justify="center">
-                      <v-btn color="#faa519" @click="navigateToHomeOwner">
+                      <v-btn color="#faa519" @click="navigateToLogin">
                         Iniciar sesión
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                      <v-btn color="#faa519" @click="navigateToPlans">
-                        Ver planes
                       </v-btn>
                     </p>
                   </div>
@@ -38,7 +34,7 @@
         <v-col cols="7">
           <v-card class="pa-2" outlined tile>
             <v-card-title>
-             Presentación
+              Presentación
             </v-card-title>
             <v-card-text>
               “RestCode” facilita la comunicación y crea un vínculo entre los dueños de los restaurantes y los asesores
@@ -85,13 +81,13 @@
           <v-card>
             <v-row>
               <v-col cols="2"></v-col>
-            <v-col cols="8">
-              <v-img
-                  src="https://www.bunboyeatsnyc.com/wp-content/uploads/2016/05/IMG_5751.jpg"
-                  width="100%"
-                  class="rounded-img"
-              ></v-img>
-            </v-col>
+              <v-col cols="8">
+                <v-img
+                    src="https://www.bunboyeatsnyc.com/wp-content/uploads/2016/05/IMG_5751.jpg"
+                    width="100%"
+                    class="rounded-img"
+                ></v-img>
+              </v-col>
               <v-col cols="2"></v-col>
             </v-row>
             <v-card-title class="justify-center">
@@ -153,7 +149,7 @@
                   <v-col cols="2"></v-col>
                 </v-row>
                 <v-card-text class="text-center">
-                 Gracias a RestCode ahora tengo una manera rápida y fácil de contactar con mi servicio de consultoría
+                  Gracias a RestCode ahora tengo una manera rápida y fácil de contactar con mi servicio de consultoría
                   preferido. No hace falta decir que el negocio va viento en popa desde que hallé nuevas y eficaces maneras
                   de administrarlo.
                 </v-card-text>
@@ -171,13 +167,12 @@
 export default {
   name: "home",
   methods: {
-    navigateToPlans() {
-      this.$router.push({name: '/plans'});
-    },
     navigateToHomeOwner() {
       this.$router.push({name: 'home-owner'});
+    },
+    navigateToLogin() {
+      this.$router.push({name: 'sign-in'});
     }
-
   }
 }
 </script>

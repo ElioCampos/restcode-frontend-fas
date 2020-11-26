@@ -9,7 +9,6 @@
         <v-btn text to="/restaurants/301">Restaurante</v-btn>
         <v-btn text to="/consultancies">Consultores</v-btn>
         <v-btn text to="/consultants/23">Perfil</v-btn>
-        <v-btn text to="/login">Login</v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-main>
@@ -23,15 +22,10 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'App',
-
   components: {
-
   },
-
   data: () => ({
     //
   }),
