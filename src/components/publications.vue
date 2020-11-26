@@ -15,13 +15,16 @@
             <v-col cols="4"></v-col>
           </v-row>
         </v-col>
+        <v-col cols="3"></v-col>
         <v-col cols="6">
-          <v-card @click="navigateToPublications">
+          <div v-for="post in publications" :key="post">
+          <v-spacer></v-spacer>
+          <v-card>
             <v-row>
               <v-col cols="2"></v-col>
               <v-col cols="8">
                 <v-img
-                    src="https://neilpatel.com/wp-content/uploads/2016/05/writingposts.jpg"
+                    src="https://previews.123rf.com/images/creativepriyanka/creativepriyanka1909/creativepriyanka190900606/130480594-icon-for-work-book-publication.jpg"
                     width="100%"
                     class="rounded-img"
                 ></v-img>
@@ -29,50 +32,46 @@
               <v-col cols="2"></v-col>
             </v-row>
             <v-card-title class="justify-center">
-              Publicaciones
+              Publicacion {{post.id}}
             </v-card-title>
+            <v-card-text class="text-center">
+              {{post.description}}
+            </v-card-text>
           </v-card>
+          </div>
         </v-col>
-        <v-col cols="6">
-          <v-card @click="navigateToAppointments">
-            <v-row>
-              <v-col cols="2"></v-col>
-              <v-col cols="8">
-                <v-img
-                    src="https://www.benchillmedicalpractice.co.uk/website/P84029/files/appt.jpeg"
-                    width="100%"
-                    class="rounded-img"
-                ></v-img>
-              </v-col>
-              <v-col cols="2"></v-col>
-            </v-row>
-            <v-card-title class="justify-center">
-              Citas
-            </v-card-title>
-          </v-card>
-        </v-col>
+        <v-col cols="3"></v-col>
       </v-row>
     </v-container>
   </v-card>
 </template>
 
 <script>
+import PublicationsService from '../services/publications-service';
 export default {
-name: "home-consultant",
-  methods: {
-    select() { },
-    navigateToPublications() {
-      this.$router.push ({name: 'publications'});
-    },
-    navigateToAppointments() {
-      this.$router.push ({name: 'appointments'});
+  name: "publications",
+  data() {
+    return {
+      publications: []
     }
+  },
+  methods: {
+    retrievePublications() {
+      PublicationsService.getAllPublications()
+          .then(response => {
+            this.publications = response.data;
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+    }
+  },
+  created() {
+    this.retrievePublications();
   }
 }
 </script>
 
 <style scoped>
-.rounded-img {
-  border-radius: 100%;
-}
+
 </style>

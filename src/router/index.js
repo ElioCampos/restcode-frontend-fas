@@ -49,6 +49,11 @@ const routes = [
     component: () => import('../components/home-owner')
   },
   {
+    path: '/publications',
+    name: 'publications',
+    component: () => import('../components/publications')
+  },
+  {
     path: '/home-consultant',
     name: 'home-consultant',
     component: () => import('../components/home-consultant')
