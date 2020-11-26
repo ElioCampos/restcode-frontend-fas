@@ -19,12 +19,8 @@
                     RESTCODE
                     <v-spacer></v-spacer>
                     <p align="center" justify="center">
-                      <v-btn color="#faa519" @click="navigateToHomeOwner">
+                      <v-btn color="#faa519" @click="navigateToLogin">
                         Iniciar sesión
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                      <v-btn color="#faa519" @click="navigateToPlans">
-                        Ver planes
                       </v-btn>
                     </p>
                   </div>
@@ -171,11 +167,11 @@
 export default {
   name: "home",
   methods: {
-    navigateToPlans() {
-      this.$router.push({name: '/plans'});
-    },
     navigateToHomeOwner() {
       this.$router.push({name: 'home-owner'});
+    },
+    navigateToLogin() {
+      this.$router.push({name: 'sign-in'});
     }
 
   }

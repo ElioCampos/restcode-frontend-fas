@@ -142,7 +142,6 @@ export default {
         password: '',
         linkedinLink: ''
       }
-
     }
   },
   computed: { },
